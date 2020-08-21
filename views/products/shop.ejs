@@ -1,0 +1,47 @@
+<%- include("../partials/header.ejs") %>
+    <div class="container">
+
+        <header style="text-align: center;" class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1>Welcome to Perinneal Collections </h1>
+                <p> Here are the hand picked gifts for you</p>
+            </div>
+        </header>
+        <div style="margin: auto 0x;" class="row text-center">
+            <% products.forEach(function(products){%>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 ">
+                    <div class=" img-thumbnail ">
+
+                        <img class="imgthumb img-fluid" src="<%=products.imgpath%> ">
+
+
+                        <div class="caption text-center">
+                            <h3>
+                                <%=products.tittle%>
+                            </h3>
+                        </div>
+                        <h6>
+                            <%=products.description%>
+                        </h6>
+                        <p>
+                            <h3>
+                                $
+                                <%=products.price%>
+                            </h3>
+                            <a href="/addtocart/<%=products._id%>" class="btn btn-primary btn-center " id="buy" role="button"> Buy</a>
+
+                        </p>
+
+
+                    </div>
+                </div>
+                <%})%>
+
+
+        </div>
+
+    </div>
+
+
+
+    <%- include("../partials/footer.ejs") %>

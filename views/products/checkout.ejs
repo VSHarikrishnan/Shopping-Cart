@@ -1,0 +1,53 @@
+<%- include("../partials/header.ejs") %>
+    <button type="button" class="btn btn-xs btn-primary float-right" data-toggle="modal" data-target="#campgroundlikes">
+    <span>Total likes: <i class="fas fa-heart"></i> <%= campground.likes.length %></span>
+</button>
+
+
+    <!-- Campground Likes Modal -->
+    <div id="campgroundlikes" class="modal fade">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close " data-dismiss="modal">&times;</button>
+                    <!-- &times; inerting cross hex code -->
+                    <h4 class="modal-title">Campground likes:
+                        <%= campground.likes.length %>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <table>
+
+                        <tr>
+                            <th>Liked by:</th>
+                        </tr>
+
+
+                        <% campground.likes.forEach(function(like) { %>
+                            <tr>
+                                <td><span class="badge badge-pill badge-secondary"><i class="fas fa-user"></i></span>
+                                    <%= like.username %>
+                                </td>
+                            </tr>
+                            <% }); %>
+                                <% if (campground.likes.length === 0) { %>
+                                    <tr>
+                                        <td><em>No likes yet.</em></td>
+                                    </tr>
+                                    <% } %>
+
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <%- include("../partials/footer.ejs") %>
